@@ -47,7 +47,7 @@ def main():
 
 
     while True:
-        render(game,file,current)
+        render(game,item,current)
         response = get_input()
         if response == "QUIT":
             break
