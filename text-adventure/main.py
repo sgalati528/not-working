@@ -20,14 +20,44 @@ def load_files():
         print("There was a problem reading either the game or item file.")
         os._exit(1)
 
+
+def render(game,item,current):
+    c = game[current]
+    print ("You're at the" + c["name"])
+    print(c["desc"])
+
+def get_input():
+    response = input("What do you want to do?")
+    response = response.upper().strip()
+    return response
+
+def update(game,item,current,response):
+    c = game[current]
+    for e in c["exits"]:
+        if response == e["exit"]:
+            return e["target"]
+    return current
+
 # The main function for the game
 def main():
     current = 'WHOUS'  # The starting location
     end_game = ['END']  # Any of the end-game locations
 
-    (game,items) = load_files()
+    (game,item) = load_files()
 
-    # Add your code here
+
+    while True:
+        render(game,file,current)
+        response = get_input()
+        if response == "QUIT":
+            break
+
+        current = update(game,item,current,response)
+
+
+
+
+
 
 # run the main function
 if __name__ == '__main__':
