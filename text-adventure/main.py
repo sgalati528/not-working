@@ -47,12 +47,12 @@ def main():
 
 
     while True:
-        render(game,item,current)
+        render (game,item,current)
         response = get_input()
         if response == "QUIT":
             break
 
-        current = update(game,item,current,response)
+    current = update(game,item,current,response)
 
 
 
